@@ -3,10 +3,10 @@
 "October", "November", "Desember"];*/
 
 
-  const api ={
-    key: "ec8ad734d8ee0150cc033edc8e9436d0",
-    base: "https://api.openweathermap.org/data/2.5",
-}
+const api = {
+  key: "5a7c66435c4d436b4e54f809d8699d9f",
+  base: "https://api.openweathermap.org/data/2.5/",
+};
 
 const searchbox = document.querySelector(".search-box");
 searchbox.addEventListener("keypress" , setQuery);
@@ -20,7 +20,7 @@ function setQuery (evt) {
 
 
 function getResults (query) {
-    fetch(`${api.base}weather?=${query}&units=metric&APPID=${api.key}`)
+    fetch(`http://api.openweathermap.org/data/2.5/weather?q=${query}&units=imperial&appid=${api.key}`)
     .then(weather => {
         return weather.json();
     }).then(displayResults)
