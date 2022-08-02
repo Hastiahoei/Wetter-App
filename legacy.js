@@ -2,7 +2,7 @@
 "October", "November", "Desember"];*/
 
 const api = {
-  key: "5a7c66435c4d436b4e54f809d8699d9f",
+  key: "",
   base: "https://api.openweathermap.org/data/2.5/",
 };
 
