@@ -1,12 +1,17 @@
-
-/*let months = ["Januar" , "Februar" , "März" , "April", "Mai" ,"June", "Juli", "Agust","September",
-"October", "November", "Desember"];*/
-
-
 const api = {
-  
+  key: "5a7c66435c4d436b4e54f809d8699d9f",
   base: "https://api.openweathermap.org/data/2.5/",
 };
+
+const cc = (fahrenheit) =>{
+  let c = (fahrenheit-32) * 5/9;
+  const save = Math. round(c) 
+
+  console.log(save); 
+  return save
+}
+
+
 
 const searchbox = document.querySelector(".search-box");
 searchbox.addEventListener("keypress" , setQuery);
