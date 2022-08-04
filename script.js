@@ -1,8 +1,10 @@
+//API von openweather app
 const api = {
   key: "5a7c66435c4d436b4e54f809d8699d9f",
   base: "https://api.openweathermap.org/data/2.5/",
 };
 
+ // ein function von fahrenheit zum santigerad
 const cc = (fahrenheit) =>{
   let c = (fahrenheit-32) * 5/9;
   const save = Math. round(c) 
@@ -12,6 +14,7 @@ const cc = (fahrenheit) =>{
 }
 
 
+//Event
 
 const searchbox = document.querySelector(".search-box");
 searchbox.addEventListener("keypress" , setQuery);
@@ -23,6 +26,7 @@ function setQuery (evt) {
     }
 }
 
+//fetch
 
 function getResults (query) {
     fetch(`http://api.openweathermap.org/data/2.5/weather?q=${query}&units=imperial&appid=${api.key}`)
@@ -41,6 +45,18 @@ function displayResults (weather) {
   
     let temp = document.querySelector('.current .temp');
     temp.innerHTML = `${Math.round(weather.main.temp)}<span>°c</span>`;
+  
+    //bei temperture das bild Ändern
+
+    let bodyElement = document.querySelector("body");
+    let fahrenheitTemperature = Math.round(weather.main.temp);
+    console.log(fahrenheitTemperature)
+    
+    if (fahrenheitTemperature < 90) {
+      bodyElement.style.backgroundImage = "url('img/cool.jpg')";
+    } else {
+      bodyElement.style.backgroundImage = "url('img/warm.jpg')";
+    }
   
     let weather_el = document.querySelector('.current .weather');
     weather_el.innerText = weather.weather[0].main;
